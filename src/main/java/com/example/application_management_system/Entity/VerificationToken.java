@@ -1,10 +1,9 @@
 package com.example.application_management_system.Entity;
-
+import com.example.application_management_system.Entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.User;
 
 import java.time.LocalDateTime;
 

@@ -1,3 +1,4 @@
+package com.example.application_management_system.Entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
