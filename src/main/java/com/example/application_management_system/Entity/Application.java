@@ -1,23 +1,25 @@
 package com.example.application_management_system.Entity;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Application {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String content;
+    private String applicationName;
 
-    @OneToMany
-    @JoinColumn(name= "applicant_Id", nullable = false)
-    @JsonBackReference
+    private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "applicant_id")
     private Applicant applicant;
 }
-

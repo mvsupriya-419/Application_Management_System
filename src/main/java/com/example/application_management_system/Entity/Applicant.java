@@ -1,12 +1,12 @@
 package com.example.application_management_system.Entity;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -22,7 +22,10 @@ public class Applicant {
 
     private String email;
 
-    @OneToOne(mappedBy = "applicant")
+    @OneToMany(mappedBy = "applicant")
+    private List<Application> applications;
+
+    @OneToOne(mappedBy = "applicant", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Resume resume;
 }
